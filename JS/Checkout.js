@@ -1,6 +1,7 @@
 const apiCheckout = `http://localhost:3000/cart`;
 
 let selectBtn = document.querySelector('#selectBtn')
+let DeselectBtn = document.querySelector('#DeselectBtn')
 let subTotal;
 let grandTotal;
 
@@ -108,7 +109,7 @@ const renderCheckout = (value) => {
     //  let btn1 = document.createElement('button');
     //  btn1.innerText = 'select';
     row.innerHTML = `
-    <input class="checkBox" type="checkbox" />
+    <input class="checkBox" name="rowCheck" type="checkbox" />
             <td>${el.title}</td>
             <td>₹${el.price}</td>
             <td>
@@ -169,21 +170,25 @@ const renderCheckout = (value) => {
   container.append(table, amountDiv_main);
 };
 
-selectBtn.addEventListener('click',()=>{
-let checkBox =document.querySelector(".checkBox");
-  
-  // Toggle checkbox checked state
-  checkBox.checked = !checkBox.checked;
+// checked button start
 
+function seleckAll() {
+  let rowCheck =document.getElementsByName("rowCheck");
+ let rowCheckLen = rowCheck.length;
 
-});
+for(let i=0;i<rowCheckLen;i++){
+rowCheck[i].checked = true;
+}
+}
 
-// function seleckFunc() {
-//   let checkBox =document.querySelectorAll(".checkBox");
-  
-//   // Toggle checkbox checked state
-//   checkBox.checked = !checkBox.checked;
-// }
+function DeseleckAll() {
+  let rowCheck =document.getElementsByName("rowCheck");
+ let rowCheckLen = rowCheck.length;
+
+for(let i=0;i<rowCheckLen;i++){
+rowCheck[i].checked = false;
+}
+}
 
 const incrementCount = async (id, counts) => {
   try {

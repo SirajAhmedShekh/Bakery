@@ -385,10 +385,31 @@
 #selectBtn{
   width: 100px;
   background-color:green ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 20px;
+  text-align: center;
   border-radius: 10px;
   position: absolute;
   top:200px;
   right: 300px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#DeselectBtn{
+   width: 100px;
+  background-color:red ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 30px;
+  border-radius: 10px;
+  position: absolute;
+  top:200px;
+  right: 190px;
   color: #fff;
   font-weight: bold;
   font-size: 20px;

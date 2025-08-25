@@ -57,7 +57,7 @@ const renderTheUI = (value) => {
                     <p>rate : ${el.rating.rate}</p>
                     </div>
                     <button onclick="addToCart(${el.id})" class="btns">add</button>
-                    <button onclick="detail()" class="detailBtn">vie Detail</button>
+                    <button onclick="detail(${el.id})" class="detailBtn">vie Detail</button>
             </div>
         `;
     container.appendChild(card);
@@ -179,9 +179,9 @@ document.querySelector("#decrementBtn").addEventListener("click", () => {
 });
 
 
-const detail =(i)=>{
+// const detail =(id)=>{
  
- window.location = `../detail.html?id=${i}`;
-  }
+//  window.location = `../detail.html`;
+//   }
 
 
