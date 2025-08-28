@@ -1,23 +1,16 @@
-const profileImg = new URL(
-  "https://raw.githubusercontent.com/hetuk2005/Fake_Store/23e121dcaef2e2c0abf0a202d185aa7d74ba9970/Utils/20-30%20Age.svg",
-  import.meta.url
-).href;
-const searchImg = new URL(
-  "../utils/Search-removebg-preview.svg",
-  import.meta.url
-).href;
 
-const footer_svg_logo = new URL("../utils/footer_Logo.svg", import.meta.url)
-  .href;
-const facebook_logo = new URL("../utils/facebook-logo.png", import.meta.url)
-  .href;
-const github_logo = new URL("../utils/github-logo.png", import.meta.url).href;
-const google_logo = new URL("../utils/google.png", import.meta.url).href;
-const youtube_logo = new URL("../utils/youtube.png", import.meta.url).href;
-const linkdin_logo = new URL("../utils/linkdin.png", import.meta.url).href;
+const profileImg = new URL('https://raw.githubusercontent.com/hetuk2005/Fake_Store/23e121dcaef2e2c0abf0a202d185aa7d74ba9970/Utils/20-30%20Age.svg', import.meta.url).href;
+const searchImg = new URL('../utils/Search-removebg-preview.svg', import.meta.url).href;
+
+const footer_svg_logo = new URL('../utils/footer_Logo.svg', import.meta.url).href;
+const facebook_logo = new URL('../utils/facebook-logo.png', import.meta.url).href;
+const github_logo = new URL('../utils/github-logo.png', import.meta.url).href;
+const google_logo = new URL('../utils/google.png', import.meta.url).href;
+const youtube_logo = new URL('../utils/youtube.png', import.meta.url).href;
+const linkdin_logo = new URL('../utils/linkdin.png', import.meta.url).href;
 
 export const Navbar = () => {
-  return `
+    return `
     <nav>
         <p class="logo_nav" >
             <svg  class="sideBar" id="openSidebar" aria-expanded="false" aria-controls="sidebar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="restaurant">
@@ -40,19 +33,23 @@ export const Navbar = () => {
         </p>
         
         <ul class="rout_page_name">
-            <li class="homePage nav-link">home</li>
-            <li class="about nav-link">about</li>
-            <li class="loginFunc nav-link">login</li>
+            <li class="homePage  nav-link">home</li>
+            <li class="nav-link">about</li>
+            <li class="loginFunc nav-link" >login</li>
             <li class="cartFunc nav-link">cart</li>
             <span class="cartDisplay"></span>
         </ul>
         <img src=${profileImg} alt="profile-logo">
+        <div class="toggleBtn" id="toggleBtn">
+            <strong>🌙</strong>
+            <strong>☀️</strong>
+        </div>
     </nav>
-    `;
-};
+    `
+}
 
 export const Footers = () => {
-  return `
+    return `
      <section class="footer">
         <section class="footer_logos">
             <img src="${footer_svg_logo}" alt="footer-logo">
@@ -68,11 +65,12 @@ export const Footers = () => {
             <img src="${linkdin_logo}" alt="linkdin">
         </section>
     </section>
-`;
-};
+`
+}
+
 
 export const NavStyle = () => {
-  return `
+    return `
     .header,#footers{
         width:100%;
     }
@@ -170,26 +168,23 @@ export const NavStyle = () => {
             width: 50px;
             height: 50px;
         }
+        
+        .rout_page_name > li:hover,
+        .rout_page_name li.active {
+        content: '';
+        top: 0;
+        left: 0;
+        background: #000;
+        color: hsl(120 75% 50%/1);
+        border-radius: 10px;
+        }
 
-        .rout_page_name > li {
-  /* color: rgba(255, 255, 255, 0.75); */
-  transition: all 0.3s ease-out;
+        `
 }
-
-.rout_page_name li.active {
-  content: "";
-  top: 0;
-  left: 0;
-  background: #000;
-  color: hsl(120 75% 50%/1);
-  border-radius: 10px;
-}
-        `;
-};
-//  side-bar functionality start
+//  side-bar functionality start 
 
 export const SideBar = () => {
-  return `
+    return `
     
      <!-- The overlay that blurs the background when active -->
     <div class="overlay" id="overlay" aria-hidden="true"></div>
@@ -206,62 +201,61 @@ export const SideBar = () => {
         <a href="#"><span>📞</span> Contact</a>
     </section>
     
-    `;
-};
+    `
+}
 //  side-bar functionality end
 
+
+
 export const loginFunc = () => {
-  window.location.pathname = "Login.html";
-};
+    window.location.pathname = 'Login.html';
+}
 
 export const goHome = () => {
-  window.location.pathname = "index.html";
-};
+    window.location.pathname = 'index.html';
+}
 
 export const cartFunc = () => {
-  window.location.pathname = "Cart.html";
-};
+    window.location.pathname = 'Cart.html';
+}
 
 let text = "🔍  Search For What You Want...";
 let input;
 let i = 0;
 
 export const typePlaceholder = () => {
-  input = document.querySelector("#search");
-  if (!input) return;
-  if (i <= text.length) {
-    input.setAttribute("placeholder", text.substring(0, i));
-    i++;
-    setTimeout(typePlaceholder, 100);
-  } else {
-    i = 0;
-    setTimeout(typePlaceholder, 1100);
-  }
+    input = document.querySelector('#search');
+    if (!input) return;
+    if (i <= text.length) {
+        input.setAttribute("placeholder", text.substring(0, i));
+        i++;
+        setTimeout(typePlaceholder, 100);
+    } else {
+        i = 0;
+        setTimeout(typePlaceholder, 1100);
+    }
 };
 
 // Highlight Active Nav Item
-function setActiveNav() {
-  // Get current page name (like index.html, Login.html, Cart.html)
-  let currentPage = window.location.pathname.split("/").pop().toLowerCase();
+export const setActiveNav = () => {
+    // Get current page name (like index.html, Login.html, Cart.html)
+    let currentPage = window.location.pathname.split("/").pop().toLowerCase();
 
-  // Select all nav links
-  const navItems = document.querySelectorAll(".rout_page_name .nav-link");
+    // Select all nav links
+    const navItems = document.querySelectorAll(".rout_page_name .nav-link");
 
-  navItems.forEach((item) => {
-    // reset
-    item.classList.remove("active");
+    navItems.forEach((item) => {
+        // reset
+        item.classList.remove("active");
 
-    // Match based on text or condition
-    if (
-      (currentPage === "index.html" && item.classList.contains("homePage")) ||
-      (currentPage === "login.html" && item.classList.contains("loginFunc")) ||
-      (currentPage === "cart.html" && item.classList.contains("cartFunc")) ||
-      (currentPage === "about.html" && item.classList.contains("about"))
-    ) {
-      item.classList.add("active");
-    }
-  });
+        // Match based on text or condition
+        if (
+            (currentPage === "index.html" && item.classList.contains("homePage")) ||
+            (currentPage === "login.html" && item.classList.contains("loginFunc")) ||
+            (currentPage === "cart.html" && item.classList.contains("cartFunc")) ||
+            (currentPage === "about.html" && item.classList.contains("about"))
+        ) {
+            item.classList.add("active");
+        }
+    });
 }
-
-// Call it once when page loads
-document.addEventListener("DOMContentLoaded", setActiveNav);
