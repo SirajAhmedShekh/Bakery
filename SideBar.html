@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Simple Sidebar with Background Blur</title>
-        <style>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simple Sidebar with Background Blur</title>
+    <style>
         :root {
             --sidebar-width: 300px;
             /* tweak width here */
@@ -164,70 +164,66 @@
             }
         }
     </style>
-    </head>
+</head>
 
-    <body>
-        <!-- The overlay that blurs the background when active -->
-        <div class="overlay" id="overlay" aria-hidden="true"></div>
+<body>
+    <!-- The overlay that blurs the background when active -->
+    <div class="overlay" id="overlay" aria-hidden="true"></div>
 
-        <!-- Sidebar -->
-        <section class="sidebar" id="sidebar" aria-label="Sidebar Navigation"
-            aria-hidden="true">
-            <header
-                style="display:flex; align-items:center; gap:.5rem; justify-content:space-between;">
-                <strong style="color:white">Menu</strong>
-                <button class="btn" id="closeSidebar"
-                    aria-label="Close sidebar">✕</button>
-            </header>
-            <a href="#"><span>🏠</span> Home</a>
-            <a href="#"><span>📄</span> Docs</a>
-            <a href="#"><span>📦</span> Products</a>
-            <a href="#"><span>📞</span> Contact</a>
-        </section>
-
-        <!-- Page content -->
-        <header>
-            <button class="btn" id="openSidebar" aria-expanded="false"
-                aria-controls="sidebar">☰ Open Sidebar</button>
-            <div class="brand">My Site</div>
-            <div class="spacer"></div>
+    <!-- Sidebar -->
+    <section class="sidebar" id="sidebar" aria-label="Sidebar Navigation" aria-hidden="true">
+        <header style="display:flex; align-items:center; gap:.5rem; justify-content:space-between;">
+            <strong style="color:white">Menu</strong>
+            <button class="btn" id="closeSidebar" aria-label="Close sidebar">✕</button>
         </header>
+        <a href="#"><span>🏠</span> Home</a>
+        <a href="#"><span>📄</span> Docs</a>
+        <a href="#"><span>📦</span> Products</a>
+        <a href="#"><span>📞</span> Contact</a>
+    </section>
 
-        <main>
-            <!-- Demo cards to show blur effect clearly -->
-            <div class="card">
-                <h3>Card 1</h3>
-                <p>Some content here to demonstrate the blur of background when
-                    the sidebar opens.</p>
-            </div>
-            <div class="card">
-                <h3>Card 2</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Ratione, cupiditate.</p>
-            </div>
-            <div class="card">
-                <h3>Card 3</h3>
-                <p>Place your real page content here. The overlay will blur this
-                    area.</p>
-            </div>
-            <div class="card">
-                <h3>Card 4</h3>
-                <p>Try opening the sidebar and clicking outside or pressing
-                    Escape to close.</p>
-            </div>
-            <div class="card">
-                <h3>Card 5</h3>
-                <p>Adjust <code>--blur-amount</code> in :root to change the blur
-                    strength.</p>
-            </div>
-            <div class="card">
-                <h3>Card 6</h3>
-                <p>Change <code>--sidebar-width</code> to tweak the sidebar
-                    width.</p>
-            </div>
-        </main>
+    <!-- Page content -->
+    <header>
+        <button class="btn" id="openSidebar" aria-expanded="false" aria-controls="sidebar">☰ Open Sidebar</button>
+        <div class="brand">My Site</div>
+        <div class="spacer"></div>
+    </header>
 
-        <script>
+    <main>
+        <!-- Demo cards to show blur effect clearly -->
+        <div class="card">
+            <h3>Card 1</h3>
+            <p>Some content here to demonstrate the blur of background when
+                the sidebar opens.</p>
+        </div>
+        <div class="card">
+            <h3>Card 2</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Ratione, cupiditate.</p>
+        </div>
+        <div class="card">
+            <h3>Card 3</h3>
+            <p>Place your real page content here. The overlay will blur this
+                area.</p>
+        </div>
+        <div class="card">
+            <h3>Card 4</h3>
+            <p>Try opening the sidebar and clicking outside or pressing
+                Escape to close.</p>
+        </div>
+        <div class="card">
+            <h3>Card 5</h3>
+            <p>Adjust <code>--blur-amount</code> in :root to change the blur
+                strength.</p>
+        </div>
+        <div class="card">
+            <h3>Card 6</h3>
+            <p>Change <code>--sidebar-width</code> to tweak the sidebar
+                width.</p>
+        </div>
+    </main>
+
+    <script>
         const body = document.body;
         const sidebar = document.getElementById('sidebar');
         const overlay = document.getElementById('overlay');
@@ -268,6 +264,6 @@
             }
         });
     </script>
-    </body>
+</body>
 
 </html>
