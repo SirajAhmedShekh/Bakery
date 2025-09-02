@@ -226,7 +226,7 @@ const deleteToCart = async (id) => {
     }
 };
 
-// checkout button
+// checkout button code
 
 function selectFun() {
     let checkBox = document.querySelectorAll(".checkBox");
